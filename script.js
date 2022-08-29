@@ -1,52 +1,73 @@
+let consulta = prompt("Desea realizar una compra? si / no");
 
-// Primer ejercicio 
-
-for(let i = 1 ; i <= 100 ; i++) {
-         if (i % 3 === 0 & i % 5 === 0){
-             console.log("FizBuzz")
-     }
-      else if (i % 3 === 0){
-             console.log("Fizz")
-     }
-    else if (i % 5 === 0){
-             console.log("Buzz")
-     } else {
-             console.log(i)
-     }
- }
-
-// Segundo ejercicio 
-
-
-let entrada = parseInt(prompt("Ingresa un numero y obtene una comida"))
-
-switch(entrada) {
-     case 1:
-         console.log("Elegiste un tomate")
-         break;
-     case 2:
-         console.log("Elegiste una papa")
-         break; 
-     case 3:
-         console.log("Elegiste carne")
-         break;  
-     case 4:
-         console.log("Elegiste pollo")
-         break;
-    default:
-         console.warn("No hay comida para ese numero. Por favor ingrese un numero del 1 al 4")    
+while (consulta === "si") {
+  cotizacion();
+  consulta = prompt("Desea continuar? si / no");
 }
 
-
-
-//Tercer ejercicio  
-
-
-
-let numero = parseInt(prompt("Ingrese un numero y te devolvemos su tabla de multiplicacion:"))
-
-for(i=1; i <= 10; i++){
-    console.log(numero * i)
+function cotizacion() {
+  let iphone = prompt(
+    "Que iPhone te gustaria comprar?(11 - 12 - 13 - 13 Pro - 13 Pro Max)"
+  );
+  let valorDolar = 300;
+  let tresCuotas = 1.2;
+  let seisCuotas = 1.35;
+  if (iphone === "11") {
+    console.log("El equipo seleccionado sale 610usd");
+    console.log("En pesos debería abonar", valorDolar * 610);
+    console.log(
+      "Puede abonarlo en tres cuotas sin interes de",
+      parseInt(valorDolar * 610 * tresCuotas) / 3
+    );
+    console.log(
+      "Puede abonarlo en seis cuotas sin interes de",
+      parseInt(valorDolar * 610 * seisCuotas) / 6
+    );
+  } else if (iphone === "12") {
+    console.log("El equipo seleccionado sale 700usd");
+    console.log("En pesos debería abonar", valorDolar * 700);
+    console.log(
+      "Puede abonarlo en tres cuotas sin interes de",
+      parseInt(valorDolar * 700 * tresCuotas) / 3
+    );
+    console.log(
+      "Puede abonarlo en seis cuotas sin interes de",
+      parseInt(valorDolar * 700 * seisCuotas) / 6
+    );
+  } else if (iphone === "13") {
+    console.log("El equipo seleccionado sale 900usd");
+    console.log("En pesos debería abonar", valorDolar * 900);
+    console.log(
+      "Puede abonarlo en tres cuotas sin interes de",
+      parseInt(valorDolar * 900 * tresCuotas) / 3
+    );
+    console.log(
+      "Puede abonarlo en seis cuotas sin interes de",
+      parseInt(valorDolar * 900 * seisCuotas) / 6
+    );
+  } else if (iphone === "13 Pro") {
+    console.log("El equipo seleccionado sale 1200usd");
+    console.log("En pesos debería abonar", valorDolar * 1200);
+    console.log(
+      "Puede abonarlo en tres cuotas sin interes de",
+      parseInt(valorDolar * 1200 * tresCuotas) / 3
+    );
+    console.log(
+      "Puede abonarlo en seis cuotas sin interes de",
+      parseInt(valorDolar * 1200 * seisCuotas) / 6
+    );
+  } else if (iphone === "13 Pro Max") {
+    console.log("El equipo seleccionado sale 1400usd");
+    console.log("En pesos debería abonar", valorDolar * 1400);
+    console.log(
+      "Puede abonarlo en tres cuotas sin interes de",
+      parseInt(valorDolar * 1400 * tresCuotas) / 3
+    );
+    console.log(
+      "Puede abonarlo en seis cuotas sin interes de",
+      parseInt(valorDolar * 1400 * seisCuotas) / 6
+    );
+  } else {
+    console.log("Por favor seleccione un equipo disponible.");
+  }
 }
-
-
