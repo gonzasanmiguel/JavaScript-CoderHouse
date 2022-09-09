@@ -22,13 +22,12 @@ class iphone {
       console.log(error)
     }
   }
-
-
 }
 
 
 const store = []
 
+// Meto los iPhones al array store
 
 let iphone1 = new iphone("iPhone 11", "64gb", 600, true)
 let iphone2 = new iphone("iPhone 12", "64gb", 800, true)
@@ -69,6 +68,8 @@ let precioMenor = store.filter(menor => menor.precio <= ingreso)
 console.log("Los equipos disponibles para vos son", precioMenor)
 
 
+//Con esta funcion agrego iPhone de forma dinamica
+
 function agregarIphone (){
     let nombreNuevo = prompt("Ingrese el nombre del iPhone a agregar")
     let gbNuevo = prompt("Qué capacidad tiene? (GB)")
@@ -84,7 +85,7 @@ function agregarIphone (){
 let cargarOtroProducto = prompt("Desea agregar otro producto?").toUpperCase
 while(cargarOtroProducto == "SI "){
   agregarIphone()
-  cargarOtroProducto = confirm("Queres seguir cargando productos?")
+  cargarOtroProducto = confirm("Queres seguir cargando productos?").toUpperCase()
 }
 
 
