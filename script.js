@@ -1,4 +1,3 @@
-
 // class iphone {
 //   constructor(id, nombre, capacidad, precio, disponibilidad){
 //     this.id = id
@@ -9,7 +8,7 @@
 //   }
 //   habilitar(){
 //     let error = "iPhone disponible."
-//     if(this.disponibilidad == false){ 
+//     if(this.disponibilidad == false){
 //       this.disponibilidad = true
 //     } else {
 //       console.log(error)
@@ -25,8 +24,6 @@
 //   }
 // }
 
-
-
 // Meto los iPhones al array store
 
 // let iphone1 = new iphone(1,"iPhone 11", "64gb", 600, true)
@@ -35,9 +32,7 @@
 // let iphone4 = new iphone(4,"iPhone 13 Pro", "128gb", 1200, true)
 // let iphone5 = new iphone(5,"iPhone 13 Pro Max", "128gb", 1400, false)
 
-
 // store.push(iphone1, iphone2, iphone3, iphone4, iphone5)
-
 
 // console.log(store)
 
@@ -49,17 +44,12 @@
 
 // console.log(iphone5)
 
-
-
 //filtrar por stock disponible
-
 
 // let stock = store.filter(iphones => iphones.disponibilidad == true)
 // console.log(stock)
 
-
 //filtrar por precios menores a lo que ingresa el usuario.
-
 
 // let ingreso = Number(prompt("Ingrese el dinero disponible a gastar en dolares."))
 
@@ -67,8 +57,7 @@
 
 // console.log("Los equipos disponibles para vos son", precioMenor)
 
-
-//Con esta funcion agrego iPhone de forma dinamica  
+//Con esta funcion agrego iPhone de forma dinamica
 
 // function agregarIphone (){
 //     let nombreNuevo = prompt("Ingrese el nombre del iPhone a agregar")
@@ -78,9 +67,8 @@
 //     let iphoneNuevo = new iphone (iphoneNuevo, gbNuevo, precioNuevo, disponibilidadNuevo, iphoneNuevo)
 
 //    store.push(iphoneNuevo)
-//    console.table(agregarIphone) 
+//    console.table(agregarIphone)
 // }
-
 
 // let cargarOtroProducto = prompt("Desea agregar otro producto?").toUpperCase
 // while(cargarOtroProducto == "SI "){
@@ -88,66 +76,93 @@
 //   cargarOtroProducto = confirm("Queres seguir cargando productos?").toUpperCase()
 // }
 
+const Productos = [
+  {
+    id: 1,
+    name: "iPhone 11",
+    price: "120.000",
+    description: "iphone-11",
+  },
+  {
+    id: 2,
+    name: "iPhone 12 pro",
+    price: "150.000",
+    description: "iphone-12-pro",
+  },
+  {
+    id: 3,
+    name: "iPhone 13 pro",
+    price: "200.000",
+    description: "iphone-13-pro",
+  },
+];
 
+const carrito = [];
 
+const cargarCarrito = (carrito) => {
+  let carritoContainer = document.querySelector("#carrito");
 
-const Productos = 
-[
-    {
-        id:1,
-        name: 'iPhone 11',
-        price: '120.000',
-        description: 'iphone-11',
-    },
-    {
-        id:2,
-        name: 'iPhone 12 pro',
-        price: '150.000',
-        description: 'iphone-12-pro',
-    },
-    {
-        id:3,
-        name: 'iPhone 13 pro',
-        price: '200.000',
-        description: 'iphone-13-pro',
-    },
-]
+  let container = document.querySelector("#cartContainer");
+  if (container) {
+    container.parentNode.removeChild(container);
+  }
 
-const carrito = []
-
+  let div = document.createElement("div");
+  div.setAttribute("id", "carritoContainer");
+  div.innerHTML += `<h2>Carrito de compra: </h2>`;
+  for (const producto of carrito) {
+    div.innerHTML += `
+    <div class="carrito-item">
+      <h4>Producto: ${producto.name}</h4>
+      <h4>Precio: ${producto.price}</h4>
+      <h4>Cantidad: ${producto.cantidad}</h4>
+    </div>
+    `;
+  }
+  carritoContainer.appendChild(div);
+};
 
 const cargarEventos = () => {
-  let botones = document.querySelectorAll(".boton")
-  for (const boton of botones)
-  {
-    boton.addEventListener("click", () =>
-    {
-      let prod = Productos.find(product => product.id == boton.id)
-      if(prod)
-      {
-        carrito.push(prod)
-        console.table(carrito)
-        cargarCarrito(carrito)
+  let buttons = document.querySelectorAll(".button");
+  for (const button of buttons) {
+    button.addEventListener("click", () => {
+      let prod = carrito.find(product => product.id == button.id);
+      if (prod) {
+        prod.cantidad++;
+      } else {
+        let prod = Productos.find((product) => product.id == button.id);
+        if (prod) {
+          let nuevoProducto = {
+            id: 1,
+            name: prod.nombre,
+            price: prod.price,
+            description: prod.description,
+            cantidad: 1,
+          };
+          carrito.push(nuevoProducto)
+        }
       }
-    })
+      cargarCarrito(carrito);
+    });
   }
-}
+};
 
-const cargarProductos =(Productos) =>{
-  let container = document.querySelector("#container")
-  console.log("container: ", container)
-  for (const Producto of Productos){
-    let div = document.createElement("div")
-    div.setAttribute("class", "card")
+
+const cargarProductos = (Productos) => {
+  let container = document.querySelector("#container");
+  for (const producto of Productos) { 
+    let div = document.createElement("div");
+    div.setAttribute("class", "card");
     div.innerHTML = `
     <h3>$${Producto.price}</h3>
     <h4>${Producto.name}</h4>
     <button class="boton" id= "${Producto.id}" >Agregar al carrito</button>
     `;
-    container.appendChild(div)
+    container.appendChild(div);
   }
   //CARGA DE EVENTOS
-  cargarEventos()
-}
+  cargarEventos();
+};
 
-cargarProductos(Productos)
+cargarProductos(Productos);
+cargarCarrito();
