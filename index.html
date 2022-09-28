@@ -1,28 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Apple Store Junín - Cotizador</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript</title>
-    <link rel="stylesheet" href="assets/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
     <link rel="stylesheet" href="style.css">
-    <script src="assets/Bootstrap/js/jquery.slim.min.js"></script>
-    <script src="assets/Bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script defer src="script.js"></script>
+    <script src="js/class.cotizador.js"></script>
+    <script defer src="js/variables.js"></script>
+    <script defer src="js/app.js"></script>
 </head>
-
 <body>
-    <header>
-        <h1>Bienvenido a Apple Store.</h1>
-    </header>
-    <h3>Indique que equipo le gustaria comprar y le brindaremos toda la informacion.</h3>
-    <section id="container"></section>
-    <section id="carrito"></section>
-    <footer>
-        <h6><small> Copyright &copy; 2022 Apple Store Junin &reg; - Todos los derechos reservados.</small></h6>
-    </footer>
-</body>
+    <h1 class="center separador">Cotizá tu iPhone usado</h1>
+    <div class="div-cotizador">
+        <h2 class="center separador">Completá los datos solicitados</h2>
+            <label for="iphone">¿Qué iPhone entregás?</label>
+            <select id="iphone">
+                <option selected disabled>...</option>
+            </select>
+        <label for="bateria">Indica la condición de batería</label>
+        <select id="bateria">
+            <option selected disabled>...</option>
 
+        </select>
+        <label for="detalles">¿Tiene detalles estéticos?</label>
+        <select id="detalles">
+            <option selected>SI</option>
+            <option selected>NO</option>
+        </select>
+        <div class="center separador">
+            <button class="button button-outline">Cotizar</button>
+        </div>
+        <div class="center separador">
+            <p class="importe">Te valuamos tu iPhone en U$S <span>0.00</span><span class="guardar ocultar" title="Enviar por Email">📧</span></p>
+        </div>
+    </div>
+</body>
 </html>
