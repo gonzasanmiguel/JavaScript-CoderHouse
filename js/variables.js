@@ -10,7 +10,6 @@ const btnEnviar = document.querySelector("span.guardar")
 
 
 
-
 const datosCelular = [
                     {tipo: "iPhone 8 64gb", factor: 1.05},
                     {tipo: "iPhone 8 128gb", factor: 1.07},

@@ -1,6 +1,8 @@
 // cargar celulares select
+
+    
+
 const cargarCombo = (select, array) => {
-    //corregir para entrega extra
     if (array.length > 0 ){
         array.forEach(elemento => {
             select.innerHTML +=  `<option value="${elemento.factor}">${elemento.tipo}</option>`
@@ -13,8 +15,9 @@ const cargarCombo = (select, array) => {
 cargarCombo(iphone, datosCelular)
 cargarCombo(bateria, datosBateria)
 
+
+
 const datosCompletos = () => {
-    //revisar para entrega extra
     if (iphone.value != "..." && bateria.value != "..." && detalles.value != "SI"){
         return true 
     }else{
@@ -22,16 +25,15 @@ const datosCompletos = () => {
     }
 }
 
-const realizarCotizacion = () => {
-    if (datosCompletos()) {
-        //realizar cotizacion (chequar)
-        const valorCotizado = new Cotizador (iphone.value, bateria.value, fijoBat)
+
+const cotizo = ()  => {
+    const valorCotizado = new Cotizador (iphone.value, bateria.value, fijoBat)
            importe.innerText = valorCotizado.cotizar()
            btnEnviar.classList.remove("ocultar")
-    } else {
-        alert("😓 No tomamos equipos con detalles estéticos. De todas maneras asegurate de haber completado los datos correctamente")
-    }
 }
+
+const realizarCotizacion = () => datosCompletos() ? cotizo() : alert("😓 No tomamos equipos con detalles estéticos. De todas maneras asegurate de haber completado los datos correctamente")
+
 
 
 
