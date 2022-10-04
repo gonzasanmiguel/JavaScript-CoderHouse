@@ -32,7 +32,12 @@ const cotizo = ()  => {
            btnEnviar.classList.remove("ocultar")
 }
 
-const realizarCotizacion = () => datosCompletos() ? cotizo() : alert("😓 No tomamos equipos con detalles estéticos. De todas maneras asegurate de haber completado los datos correctamente")
+const realizarCotizacion = () => datosCompletos() ? cotizo() : Swal.fire({
+    icon: 'error',
+    title: 'Cuidado...',
+    text: 'No tomamos equipos con detalles esteticos!',
+    footer: 'De todas formas asegurate de haber completado todos los datos.'
+})
 
 
 
@@ -40,13 +45,17 @@ const realizarCotizacion = () => datosCompletos() ? cotizo() : alert("😓 No to
 const enviarPorEmail = ()=> {
     const cotizacion = {
         fechaCotizacion: new Date().toLocaleString(),
-        propiedad: propiedad[propiedad.selectedIndex].text,
-        ubicacion: ubicacion[ubicacion.selectedIndex].text,
-        metrosCuadrados: metros2.value,
-        poliza: importe.innerText
+        iphone: iphone[iphone.selectedIndex].text,
+        bateria: bateria[bateria.selectedIndex].text,
+        cotizacion: importe.innerText
     }
     localStorage.setItem("UltimaCotizacion", JSON.stringify(cotizacion))
-    alert("✅ Cotización enviada. ¡Muchas gracias por elegirnos!")
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Valuación enviada, gracias por confiar en nosotros',
+        timer: 3000
+      })
     btnEnviar.classList.add("ocultar")
 }
 
