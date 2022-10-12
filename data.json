@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "name": "iPhone 11",
+        "price": "600",
+        "description": "iphone-11",
+        "image": "images/iphone-11.png"
+    },
+    {
+        "id":2,
+        "name": "iPhone 12 pro",
+        "price": "850",
+        "description": "iphone-12-pro",
+        "image": "images/iphone-12-pro.png"
+    },
+    {
+        "id":3,
+        "name": "iPhone 13 pro",
+        "price": "1100",
+        "description": "iphone-13-pro",
+        "image": "images/iphone-13.png"
+    },
+    {
+        "id":4,
+        "name": "AirPods 2",
+        "price": "200",
+        "description": "airpods-2",
+        "image": "images/airpod.jpg"
+    },
+    {
+        "id":5,
+        "name": "AirPods Max",
+        "price": "350",
+        "description": "airpods-max",
+        "image": "images/airpodmax.jfif"
+    },
+    {
+        "id":6,
+        "name": "AirTag",
+        "price": "50",
+        "description": "airtag",
+        "image": "images/airtag.jpg"
+    }
+]
